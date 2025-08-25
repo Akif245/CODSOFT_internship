@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Abdul Akif Ahmed - Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0f172a;
+        cursor: none;
+/* Hide default cursor */
+body {
+  cursor: none;
+
+}
+
+#cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: linear-gradient(45deg, #d946ef, #0ea5e9, #10b981);
+  box-shadow: 0 0 20px rgba(217,70,239,0.6),
+              0 0 30px rgba(56,189,248,0.6),
+              0 0 40px rgba(16,185,129,0.6);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #f0abfc, #38bdf8, #34d399);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-gradient {
+      position: absolute;
+      top: -100px;
+      right: 50px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: linear-gradient(to top right, #d946ef, #0ea5e9, #10b981);
+      filter: blur(90px);
+      opacity: 0.5;
+      transition: transform 0.2s ease-out;
+    }
+    .bg-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 1rem;
+      padding: 1.25rem;
+      transition: all 0.4s ease;
+    }
+    .bg-card:hover {
+      border-color: transparent;
+      background: linear-gradient(135deg, rgba(217,70,239,0.15), rgba(56,189,248,0.15), rgba(16,185,129,0.15));
+      transform: translateY(-6px);
+    }
+    .skill-badge {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      padding: 0.4rem 0.8rem;
+      margin: 0.2rem;
+      display: inline-block;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .skill-badge:hover {
+      background: linear-gradient(90deg, #d946ef, #0ea5e9, #10b981);
+      color: #0f172a;
+      font-weight: 600;
+    }
+    footer {
+      color: #94a3b8;
+    }
+    /* Background gradient aura */
+    .aura {
+      position: fixed;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,70,239,.15), rgba(56,189,248,.1), rgba(16,185,129,.1));
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      filter: blur(140px);
+      animation: pulse 8s infinite ease-in-out;
+      z-index: -1;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%,-50%) scale(1); opacity: 0.3; }
+      50% { transform: translate(-50%,-50%) scale(1.05); opacity: 0.6; }
+    }
+
+    .logo-img {
+    height: 90px;
+
+    width: 100px;   /* Keeps aspect ratio */
+}
+
+
+
+
+  </style>
+</head>
+<body>
+    <div id="cursor"></div>
+
+  <!-- Aura Background -->
+  <div class="aura"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg bg-dark bg-opacity-50 sticky-top">
+    <div class="container">
+      <!-- <a class="navbar-brand gradient-text fw-bold" href="#home">Mohammed</a> -->
+      <img src="logo.svg" alt="Logo" class="logo-img">
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link text-light" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link text-light" href="#contact">Contact</a></li>
+        </ul>
+        <a href="mailto:Abdulakif44570@gmail.com" class="btn btn-outline-light ms-3 rounded-pill">Email</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="text-center py-5 position-relative">
+    <div class="hero-gradient" id="heroBlob"></div>
+    <div class="container">
+      <h1 class="display-4 fw-bold">I'm 
+        <span class="gradient-text">Mohammed Abdul Akif Ahmed</span>
+      </h1>
+      <p class="lead text-secondary">3rd-year CSE student specializing in web dev and machine learning. I build clean UIs and practical ML projects with a love for performance and DX.</p>
+      <div class="d-flex justify-content-center gap-3 flex-wrap mt-3">
+        <a href="https://github.com/Akif245" target="_blank" class="btn btn-light rounded-pill"> GitHub</a>
+        <a href="https://github.com/Akif245?tab=repositories" class="btn btn-outline-light rounded-pill">View Projects</a>
+        <a href="akif_CV (1).pdf" class="btn btn-outline-success rounded-pill">Download Resume</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="container py-5">
+    <h2 class="gradient-text mb-3">About</h2>
+    <p class="text-secondary">Who I am, and what I love</p>
+    <div class="row g-4 mt-3">
+      <div class="col-md-7 bg-card">
+        I'm a developer based in Hyderabad, India. I enjoy building delightful user experiences and solving real problems with data. I’m currently exploring Astro, LLMs and full-stack patterns.
+      </div>
+      <div class="col-md-5">
+        <ul class="list-group bg-transparent">
+          <li class="list-group-item bg-transparent text-light d-flex justify-content-between"><span class="text-secondary">College</span> <span>MVSR Engineering College</span></li>
+          <li class="list-group-item bg-transparent text-light d-flex justify-content-between"><span class="text-secondary">Email</span> <span>Abdulakif44570@gmail.com</span></li>
+          <li class="list-group-item bg-transparent text-light d-flex justify-content-between"><span class="text-secondary">GitHub</span> <span>@Akif245</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container py-5">
+    <h2 class="gradient-text mb-3">Projects</h2>
+    <p class="text-secondary">Selected work</p>
+    <div class="row g-4 mt-3">
+        <div class="col-md-4"><div class="bg-card"><h5>Annafi foundation</h5><p>End-to-end website for a foundation based company.</p><span class="badge bg-secondary me-1">HTML</span><span class="badge bg-secondary me-1">CSS</span><span class="badge bg-secondary me-1">JavaScript</span><span class="badge bg-secondary">Bootstrap</span></div></div>
+        <div class="col-md-4"><div class="bg-card"><h5> Gen-Wi Doc Generator</h5><p>Theme based document generator built for quick exports.</p><span class="badge bg-secondary me-1">HTML</span><span class="badge bg-secondary me-1">CSS</span><span class="badge bg-secondary">JavaScript</span></div></div>
+      <div class="col-md-4"><div class="bg-card"><h5>Diabetes Prediction (ML)</h5><p>End-to-end data pipeline, model training, and Flask UI for predictions.</p><span class="badge bg-secondary me-1">Python</span><span class="badge bg-secondary me-1">Pandas</span><span class="badge bg-secondary me-1">Scikit-learn</span><span class="badge bg-secondary">Flask</span></div></div>
+      <div class="col-md-4"><div class="bg-card"><h5>SONAR Rock vs Mine Classifier</h5><p>Feature engineering + logistic regression & SVM baseline with metrics dashboard.</p><span class="badge bg-secondary me-1">Python</span><span class="badge bg-secondary me-1">NumPy</span><span class="badge bg-secondary">ML</span></div></div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="container py-5">
+    <h2 class="gradient-text mb-3">Skills</h2>
+    <p class="text-secondary">Tools I use daily</p>
+    <div>
+      <span class="skill-badge">HTML</span>
+      <span class="skill-badge">CSS</span>
+      <span class="skill-badge">JavaScript</span>
+      <span class="skill-badge">Python</span>
+      <span class="skill-badge">C</span>
+      <span class="skill-badge">Machine Learning</span>
+      <span class="skill-badge">Flask</span>
+      <span class="skill-badge">Astro</span>
+      <span class="skill-badge">Git/GitHub</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+<!-- Contact -->
+<section id="contact" class="container py-5">
+  <h2 class="gradient-text mb-3">Contact</h2>
+  <p class="text-secondary">Let's build something together. Fill out the form below </p>
+  
+  <!-- Replace YOUR_FORM_ID with your actual Formspree ID -->
+  <form id="contactForm" action="https://formspree.io/f/mqadzlnr" method="POST" class="bg-card row g-3">
+    
+    <!-- Name -->
+    <div class="col-md-6">
+      <input 
+        type="text" 
+        name="name" 
+        class="form-control bg-dark text-light" 
+        value="Enter your full name"
+        onfocus="if(this.value==='Enter your full name'){this.value='';}" 
+        onblur="if(this.value===''){this.value='Enter your full name';}" 
+        required>
+    </div>
+    
+    <!-- Email -->
+    <div class="col-md-6">
+      <input 
+        type="email" 
+        name="email" 
+        class="form-control bg-dark text-light" 
+        value="Enter your email address"
+        onfocus="if(this.value==='Enter your email address'){this.value='';}" 
+        onblur="if(this.value===''){this.value='Enter your email address';}" 
+        required>
+    </div>
+    
+    <!-- Subject -->
+    <div class="col-12">
+      <input 
+        type="text" 
+        name="subject" 
+        class="form-control bg-dark text-light" 
+        value="Enter the subject (e.g., Collaboration, Project Inquiry)" 
+        onfocus="if(this.value==='Enter the subject (e.g., Collaboration, Project Inquiry)'){this.value='';}" 
+        onblur="if(this.value===''){this.value='Enter the subject (e.g., Collaboration, Project Inquiry)';}" 
+        required>
+    </div>
+    
+    <!-- Message -->
+    <div class="col-12">
+      <textarea 
+        name="message" 
+        class="form-control bg-dark text-light" 
+        rows="5"
+        onfocus="if(this.value==='Write your message here...'){this.value='';}" 
+        onblur="if(this.value===''){this.value='Write your message here...';}" 
+        required>Write your message here...</textarea>
+    </div>
+    
+    <!-- Submit -->
+    <div class="col-12">
+      <button type="submit" class="btn btn-success w-100">Send Message</button>
+    </div>
+  </form>
+
+  <!-- Success/Error message will appear here -->
+  <div id="formMsg" class="mt-3"></div>
+</section>
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="container text-center py-4">
+   
+    <div>© <span id="year"></span> Mohammed Abdul Akif Ahmed · Built with ❤️</div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+   // Smooth blob follow animation
+const blob = document.getElementById("heroBlob");
+let targetX = 0, targetY = 0;
+let currentX = 0, currentY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  targetX = (e.clientX / window.innerWidth - 0.5) * 60; // range -30 to 30
+  targetY = (e.clientY / window.innerHeight - 0.5) * 60;
+});
+
+// animation loop
+function animate() {
+  currentX += (targetX - currentX) * 0.05;
+  currentY += (targetY - currentY) * 0.05;
+  blob.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${currentX/5}deg)`;
+  requestAnimationFrame(animate);
+}
+animate();
+ const form = document.getElementById("contactForm");
+  const formMsg = document.getElementById("formMsg");
+
+  form.addEventListener("submit", async function(event) {
+    event.preventDefault(); // stop normal form submit
+
+    const formData = new FormData(form);
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formMsg.innerHTML = `<div class="alert alert-success">Message sent successfully!</div>`;
+        form.reset();
+      } else {
+        formMsg.innerHTML = `<div class="alert alert-danger"> Oops! Something went wrong. Please try again.</div>`;
+      }
+    } catch (error) {
+      formMsg.innerHTML = `<div class="alert alert-danger"> Network error. Please check your connection.</div>`;
+    }
+  });
+
+// Gradient cursor animation
+const cursor = document.getElementById("cursor");
+let mouseX = 0, mouseY = 0;
+let cursorX = 0, cursorY = 0;
+
+document.addEventListener("mousemove", (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+function animateCursor() {
+  cursorX += (mouseX - cursorX) * 0.2;
+  cursorY += (mouseY - cursorY) * 0.2;
+  cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+
+
+  </script>
+</body>
+</html>
