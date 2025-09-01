@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Basic Calculator</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f4f7fc;
+      font-family: Arial, sans-serif;
+    }
+    .calculator {
+      background: #3498db;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    }
+    .display {
+      background: #ecf0f1;
+      height: 60px;
+      border-radius: 10px;
+      text-align: right;
+      padding: 15px;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      overflow-x: auto;
+    }
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(4, 70px);
+      grid-gap: 10px;
+    }
+    button {
+      height: 60px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #fff;
+      transition: 0.2s;
+    }
+    button:hover {
+      transform: scale(1.05);
+      background: #eaeaea;
+    }
+    .operator { background: #f39c12; color: #fff; }
+    .equal { background: #2ecc71; color: #fff; grid-column: span 2; }
+    .clear { background: #e74c3c; color: #fff; grid-column: span 2; }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <div class="display" id="display">0</div>
+    <div class="buttons">
+      <button class="clear">C</button>
+      <button class="operator">/</button>
+      <button class="operator">*</button>
+
+      <button class="number">7</button>
+      <button class="number">8</button>
+      <button class="number">9</button>
+      <button class="operator">-</button>
+
+      <button class="number">4</button>
+      <button class="number">5</button>
+      <button class="number">6</button>
+      <button class="operator">+</button>
+
+      <button class="number">1</button>
+      <button class="number">2</button>
+      <button class="number">3</button>
+      <button class="equal">=</button>
+
+      <button class="number">0</button>
+      <button class="number">.</button>
+    </div>
+  </div>
+
+  <script>
+    const display = document.getElementById("display");
+    const buttons = document.querySelectorAll("button");
+    let current = "";
+    let operator = "";
+    let firstValue = null;
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const value = button.textContent;
+
+        if (button.classList.contains("number")) {
+          current += value;
+          display.textContent = current;
+        }
+        else if (button.classList.contains("operator")) {
+          if (current === "") return; // prevent operator without number
+          if (firstValue === null) {
+            firstValue = parseFloat(current);
+          } else {
+            firstValue = calculate(firstValue, parseFloat(current), operator);
+            display.textContent = firstValue;
+          }
+          operator = value;
+          current = "";
+        }
+        else if (button.classList.contains("equal")) {
+          if (firstValue !== null && current !== "" && operator !== "") {
+            firstValue = calculate(firstValue, parseFloat(current), operator);
+            display.textContent = firstValue;
+            current = "";
+            operator = "";
+          }
+        }
+        else if (button.classList.contains("clear")) {
+          current = "";
+          operator = "";
+          firstValue = null;
+          display.textContent = "0";
+        }
+      });
+    });
+
+    function calculate(a, b, op) {
+      if (op === "+") return a + b;
+      if (op === "-") return a - b;
+      if (op === "*") return a * b;
+      if (op === "/") return b !== 0 ? a / b : "Error";
+    }
+  </script>
+</body>
+</html>
