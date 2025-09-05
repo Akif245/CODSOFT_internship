@@ -50,7 +50,8 @@
     .operator { background: #f39c12; color: #fff; }
     .equal { background: #2ecc71; color: #fff; grid-column: span 2; }
     .clear { background: #e74c3c; color: #fff; grid-column: span 2; }
-  </style>
+    .zero { grid-column: span 2; }
+    </style>
 </head>
 <body>
   <div class="calculator">
@@ -59,24 +60,24 @@
       <button class="clear">C</button>
       <button class="operator">/</button>
       <button class="operator">*</button>
-
+      
       <button class="number">7</button>
       <button class="number">8</button>
       <button class="number">9</button>
       <button class="operator">-</button>
-
+      
       <button class="number">4</button>
       <button class="number">5</button>
       <button class="number">6</button>
       <button class="operator">+</button>
-
+      
       <button class="number">1</button>
       <button class="number">2</button>
       <button class="number">3</button>
+      <button class="number">.</button>
       <button class="equal">=</button>
 
-      <button class="number">0</button>
-      <button class="number">.</button>
+      <button class="number zero">0</button>
     </div>
   </div>
 
@@ -92,11 +93,12 @@
         const value = button.textContent;
 
         if (button.classList.contains("number")) {
+          if (value === "." && current.includes(".")) return; // prevent multiple decimals
           current += value;
           display.textContent = current;
         }
         else if (button.classList.contains("operator")) {
-          if (current === "") return; // prevent operator without number
+          if (current === "") return;
           if (firstValue === null) {
             firstValue = parseFloat(current);
           } else {
